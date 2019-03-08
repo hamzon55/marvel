@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.hamzajerbi.marvel.Base.Model.Marvel
 import com.example.hamzajerbi.marvel.R
 
-class MainAdapter(val newsList: ArrayList<MainAdapterModel>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainAdapter(val marvelList: Marvel) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
 
         val v = LayoutInflater.from(p0?.context).inflate(R.layout.main_item_list, p0, false)
@@ -15,14 +17,14 @@ class MainAdapter(val newsList: ArrayList<MainAdapterModel>) : RecyclerView.Adap
     }
 
     override fun getItemCount(): Int {
-        return newsList.count()
+        return marvelList.data.results.size
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        p0?.txtName?.text = newsList[p1].title
+        p0?.txtName?.text = marvelList.data.results[p1].name
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txtName = itemView.findViewById<TextView>(R.id.txt)
+        val txtName = itemView.findViewById<TextView>(R.id.name)
     }
 }

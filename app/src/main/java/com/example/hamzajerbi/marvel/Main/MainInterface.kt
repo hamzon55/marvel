@@ -1,28 +1,29 @@
 package com.example.hamzajerbi.marvel.Main
 
 import android.content.Context
-import com.example.hamzajerbi.marvel.Main.Adapter.MainAdapterModel
+import com.example.hamzajerbi.marvel.Base.Model.Marvel
 
 interface MainPresenterToViewInterface {
     val contxt: Context
     var presenter: MainViewToPresenterInterface?
-    fun showMain(argument: ArrayList<MainAdapterModel>)
+    fun showMarvel(argument: Marvel)
 }
 
 interface MainInteractorToPresenterInterface {
-    fun mainFetched(argument: MainEntities)
+    fun marvelSuceed(result: Marvel)
+    fun marvelError(error: Throwable)
 }
 
 interface MainPresentorToInteractorInterface {
     var presenter: MainInteractorToPresenterInterface?
-    fun fetchMain(context: Context)
+    fun marvel()
 }
 
 interface MainViewToPresenterInterface {
     var view: MainPresenterToViewInterface?
     var interector: MainPresentorToInteractorInterface?
     var router: MainPresenterToRouterInterface?
-    fun requestMain()
+    fun validateMarvel()
 }
 
 interface MainPresenterToRouterInterface {

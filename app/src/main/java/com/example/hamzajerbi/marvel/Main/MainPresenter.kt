@@ -1,19 +1,28 @@
 package com.example.hamzajerbi.marvel.Main
 
+import android.widget.Toast
+import com.example.hamzajerbi.marvel.Base.Model.Data
+import com.example.hamzajerbi.marvel.Base.Model.Marvel
+import com.example.hamzajerbi.marvel.Base.PersistentData.Keys
+
 class MainPresenter : MainViewToPresenterInterface, MainInteractorToPresenterInterface {
-
-
 
     override var view: MainPresenterToViewInterface? = null
     override var interector: MainPresentorToInteractorInterface? = null
     override var router: MainPresenterToRouterInterface? = null
-
-    override fun requestMain() {
-        val view = view ?: return
-        interector?.fetchMain(view.contxt)
-    }
-    override fun mainFetched(argument: MainEntities) {
-        view?.showMain(argument.list)
+    override fun marvelSuceed(result: Marvel) {
+        view?.showMarvel(result)
 
     }
+    override fun marvelError(error: Throwable) {
+
+        val context = view?.contxt ?: return
+        Toast.makeText(context, error.message, Toast.LENGTH_SHORT).show()
+
+    }
+    override fun validateMarvel() {
+        interector?.marvel()
+
+    }
+
 }
