@@ -4,7 +4,9 @@ import android.widget.Toast
 import com.example.hamzajerbi.marvel.Base.BaseActivity
 import com.example.hamzajerbi.marvel.Base.Model.Data
 import com.example.hamzajerbi.marvel.Base.Model.Marvel
+import com.example.hamzajerbi.marvel.Base.Model.ResponseMarvel
 import com.example.hamzajerbi.marvel.Base.PersistentData.Keys
+import java.util.ArrayList
 
 class MainPresenter : MainViewToPresenterInterface, MainInteractorToPresenterInterface {
 
@@ -30,6 +32,13 @@ class MainPresenter : MainViewToPresenterInterface, MainInteractorToPresenterInt
 
         loader.displayWaiting()
         interector?.marvel()
+
+    }
+
+    override fun listItemClicked(model: Marvel) {
+
+        val view = view ?: return
+        router?.navigate(view.contxt, model)
 
     }
 

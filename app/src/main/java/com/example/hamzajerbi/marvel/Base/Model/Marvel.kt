@@ -1,9 +1,13 @@
 package com.example.hamzajerbi.marvel.Base.Model
 
-
-import com.example.hamzajerbi.marvel.Base.PersistentData.PersistentData
 import java.io.Serializable
 
+
+data class ResponseMarvel (
+    val code: Long,
+    val status: String,
+    val listCharacters :List<Data>
+) :  Serializable
 
 data class Marvel (
     val code: Long,

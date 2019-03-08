@@ -1,6 +1,7 @@
 package com.example.hamzajerbi.marvel.Main
 
 import android.content.Context
+import com.example.hamzajerbi.marvel.Base.Model.Data
 import com.example.hamzajerbi.marvel.Base.Model.Marvel
 
 interface MainPresenterToViewInterface {
@@ -24,10 +25,15 @@ interface MainViewToPresenterInterface {
     var interector: MainPresentorToInteractorInterface?
     var router: MainPresenterToRouterInterface?
     fun validateMarvel()
+    fun listItemClicked(model: Marvel)
+
 }
 
 interface MainPresenterToRouterInterface {
     companion object {
-        fun configure(activity: MainActivity) {}
+        fun configure(activity: Marvel) {}
+
     }
-}
+     fun navigate(contxt: Context, model: Marvel)
+
+    }

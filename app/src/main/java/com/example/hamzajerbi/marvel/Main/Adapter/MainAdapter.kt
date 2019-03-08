@@ -1,12 +1,12 @@
 package com.example.hamzajerbi.marvel.Main.Adapter
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.hamzajerbi.marvel.Base.Model.Data
 import com.example.hamzajerbi.marvel.Base.Model.Marvel
 import com.example.hamzajerbi.marvel.R
 import com.squareup.picasso.Picasso
@@ -20,23 +20,27 @@ class MainAdapter(val marvelList: Marvel) : RecyclerView.Adapter<MainAdapter.Vie
     }
 
     override fun getItemCount(): Int {
-        return marvelList.data.results.size
+        return marvelList.data.results.count()
     }
 
-    override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        p0?.txtName?.text = marvelList.data.results[p1].name
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        var list =  marvelList.data.results[position]
+        holder?.txtName?.text = list.name
 
-       var fullPath = marvelList.data.results[p1].thumbnail.path + "." + marvelList.data.results[p1].thumbnail.extension.toString()
-        Picasso.get().load(fullPath).into(p0.imageCharacter);
+       var fullPath = list.thumbnail.path + "." + list.thumbnail.extension
+        Picasso.get().load(fullPath).into(holder.imageCharacter);
+
+        holder?.itemView.setOnClickListener {
+
+           // listener(marvelList[position])
+
+        }
 
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txtName = itemView.findViewById<TextView>(R.id.name)
         val imageCharacter = itemView.findViewById<ImageView>(R.id.imageMarvel)
-
-
-
 
     }
 }

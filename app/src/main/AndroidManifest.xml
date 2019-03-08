@@ -20,6 +20,11 @@
                 android:name=".Main.MainActivity"
                 android:windowSoftInputMode="stateHidden|adjustPan">
         </activity>
+
+        <activity
+                android:name=".DetailCharacter.DetailCharacterActivity"
+                android:windowSoftInputMode="stateHidden|adjustPan">
+        </activity>
     </application>
 
 </manifest>

@@ -8,8 +8,10 @@ import android.support.v7.widget.RecyclerView
 import com.example.hamzajerbi.marvel.Base.BaseActivity
 import com.example.hamzajerbi.marvel.Base.Model.Data
 import com.example.hamzajerbi.marvel.Base.Model.Marvel
+import com.example.hamzajerbi.marvel.Base.Model.ResponseMarvel
 import com.example.hamzajerbi.marvel.Main.Adapter.MainAdapter
 import com.example.hamzajerbi.marvel.R
+import java.util.ArrayList
 
 class MainActivity : BaseActivity(),MainPresenterToViewInterface {
 
@@ -18,7 +20,6 @@ class MainActivity : BaseActivity(),MainPresenterToViewInterface {
 
     override val contxt: Context = this
     private var recycleView: RecyclerView? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         MainRouter.configure(this)
         super.onCreate(savedInstanceState)

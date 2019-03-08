@@ -1,10 +1,12 @@
 package com.example.hamzajerbi.marvel.Main
 
+import com.example.hamzajerbi.marvel.Base.Model.Marvel
 import com.example.hamzajerbi.marvel.Base.NetworkLayer.apiService
 import com.example.hamzajerbi.marvel.Base.NetworkLayer.disposable
 import com.example.hamzajerbi.marvel.Base.PersistentData.Keys
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlin.collections.ArrayList
 
 class MainInteractor : MainPresentorToInteractorInterface {
 
@@ -17,6 +19,7 @@ class MainInteractor : MainPresentorToInteractorInterface {
             .subscribe(
                 { result ->
                     presenter?.marvelSuceed(result)
+
 
                 },
                 { error ->

@@ -2,6 +2,7 @@ package com.example.hamzajerbi.marvel.Base.NetworkLayer
 
 import com.example.hamzajerbi.marvel.Base.Model.Data
 import com.example.hamzajerbi.marvel.Base.Model.Marvel
+import com.example.hamzajerbi.marvel.Base.Model.ResponseMarvel
 
 import com.example.hamzajerbi.marvel.Base.PersistentData.PersistentData
 import io.reactivex.Observable
