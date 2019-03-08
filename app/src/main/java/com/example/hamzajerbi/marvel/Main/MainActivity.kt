@@ -1,17 +1,14 @@
 package com.example.hamzajerbi.marvel.Main
 
 import android.content.Context
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.example.hamzajerbi.marvel.Base.BaseActivity
-import com.example.hamzajerbi.marvel.Base.Model.Data
-import com.example.hamzajerbi.marvel.Base.Model.Marvel
-import com.example.hamzajerbi.marvel.Base.Model.ResponseMarvel
+import com.example.hamzajerbi.marvel.Base.Model.CharacterResponse
+
 import com.example.hamzajerbi.marvel.Main.Adapter.MainAdapter
 import com.example.hamzajerbi.marvel.R
-import java.util.ArrayList
 
 class MainActivity : BaseActivity(),MainPresenterToViewInterface {
 
@@ -31,8 +28,8 @@ class MainActivity : BaseActivity(),MainPresenterToViewInterface {
 
 
     }
-    override fun showMarvel(argument: Marvel) {
-        recycleView?.adapter = MainAdapter(argument)
+    override fun showMarvel(argument: CharacterResponse) {
+        recycleView?.adapter = MainAdapter({ Int -> presenter?.listItemClicked(Int) },argument)
 
     }
 

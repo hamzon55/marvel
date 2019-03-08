@@ -6,7 +6,6 @@ import com.example.hamzajerbi.marvel.Base.NetworkLayer.disposable
 import com.example.hamzajerbi.marvel.Base.PersistentData.Keys
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlin.collections.ArrayList
 
 class MainInteractor : MainPresentorToInteractorInterface {
 
@@ -18,7 +17,7 @@ class MainInteractor : MainPresentorToInteractorInterface {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { result ->
-                    presenter?.marvelSuceed(result)
+                    presenter?.marvelSuceed( result)
 
 
                 },

@@ -1,17 +1,17 @@
 package com.example.hamzajerbi.marvel.Main
 
 import android.content.Context
-import com.example.hamzajerbi.marvel.Base.Model.Data
+import com.example.hamzajerbi.marvel.Base.Model.CharacterResponse
 import com.example.hamzajerbi.marvel.Base.Model.Marvel
 
 interface MainPresenterToViewInterface {
     val contxt: Context
     var presenter: MainViewToPresenterInterface?
-    fun showMarvel(argument: Marvel)
+    fun showMarvel(argument: CharacterResponse)
 }
 
 interface MainInteractorToPresenterInterface {
-    fun marvelSuceed(result: Marvel)
+    fun marvelSuceed(result: CharacterResponse)
     fun marvelError(error: Throwable)
 }
 
@@ -31,7 +31,7 @@ interface MainViewToPresenterInterface {
 
 interface MainPresenterToRouterInterface {
     companion object {
-        fun configure(activity: Marvel) {}
+        fun configure(activity: MainActivity) {}
 
     }
      fun navigate(contxt: Context, model: Marvel)

@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.hamzajerbi.marvel.Base.Model.Data
+import com.example.hamzajerbi.marvel.Base.Model.CharacterResponse
 import com.example.hamzajerbi.marvel.Base.Model.Marvel
+
+
 import com.example.hamzajerbi.marvel.R
 import com.squareup.picasso.Picasso
 
-class MainAdapter(val marvelList: Marvel) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainAdapter(private var listener: (Marvel) -> Unit, val marvel: CharacterResponse) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
 
@@ -20,11 +22,11 @@ class MainAdapter(val marvelList: Marvel) : RecyclerView.Adapter<MainAdapter.Vie
     }
 
     override fun getItemCount(): Int {
-        return marvelList.data.results.count()
+        return marvel.data.results.count()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var list =  marvelList.data.results[position]
+        var list =  marvel.data.results[position]
         holder?.txtName?.text = list.name
 
        var fullPath = list.thumbnail.path + "." + list.thumbnail.extension
@@ -32,7 +34,7 @@ class MainAdapter(val marvelList: Marvel) : RecyclerView.Adapter<MainAdapter.Vie
 
         holder?.itemView.setOnClickListener {
 
-           // listener(marvelList[position])
+            listener(marvel.data.results[position])
 
         }
 

@@ -2,11 +2,9 @@ package com.example.hamzajerbi.marvel.Main
 
 import android.widget.Toast
 import com.example.hamzajerbi.marvel.Base.BaseActivity
-import com.example.hamzajerbi.marvel.Base.Model.Data
+import com.example.hamzajerbi.marvel.Base.Model.CharacterResponse
+
 import com.example.hamzajerbi.marvel.Base.Model.Marvel
-import com.example.hamzajerbi.marvel.Base.Model.ResponseMarvel
-import com.example.hamzajerbi.marvel.Base.PersistentData.Keys
-import java.util.ArrayList
 
 class MainPresenter : MainViewToPresenterInterface, MainInteractorToPresenterInterface {
 
@@ -14,7 +12,7 @@ class MainPresenter : MainViewToPresenterInterface, MainInteractorToPresenterInt
     override var interector: MainPresentorToInteractorInterface? = null
     override var router: MainPresenterToRouterInterface? = null
 
-    override fun marvelSuceed(result: Marvel) {
+    override fun marvelSuceed(result: CharacterResponse) {
         val loader = view as BaseActivity
 
         loader.hideWaiting()
