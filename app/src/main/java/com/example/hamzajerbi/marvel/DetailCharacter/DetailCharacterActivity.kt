@@ -18,12 +18,14 @@ class DetailCharacterActivity : BaseActivity(), DetailCharacterPresenterToViewIn
     override val contxt: Context = this
     private var characterName: TextView? = null
     private var imageCharacter: ImageView? = null
+    private var characteDesc: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         DetailCharacterRouter.configure(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.character_detail_activity)
         characterName = findViewById(R.id.detailName)
+        characteDesc = findViewById(R.id.detailDesc)
         imageCharacter = findViewById(R.id.imageView)
          var receivedModel = intent.getSerializableExtra("model")
 
@@ -32,8 +34,17 @@ class DetailCharacterActivity : BaseActivity(), DetailCharacterPresenterToViewIn
 
             Picasso.get().load(fullPath).into(imageCharacter);
             characterName?.setText(castedModel.name)
+            characteDesc?.setText(castedModel.description)
+
+        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar()?.setDisplayShowHomeEnabled(true);
 
         }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 
 
 
