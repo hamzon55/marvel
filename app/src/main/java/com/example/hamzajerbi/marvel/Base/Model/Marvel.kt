@@ -71,13 +71,9 @@ enum class ItemType {
 
 data class Thumbnail (
     val path: String,
-    val extension: Extension
-):Serializable
+    val extension: String = "extension"
+): Serializable
 
-enum class Extension {
-    GIF,
-    Jpg
-}
 
 data class URL (
     val type: URLType,

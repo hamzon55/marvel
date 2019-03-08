@@ -5,17 +5,25 @@
 
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="130dp">
+            android:layout_height="220dp">
 
 
+        <ImageView android:layout_width="match_parent"
+                   android:id="@+id/imageMarvel"
+                   android:src="@color/cardview_dark_background"
+                   android:layout_height="match_parent"
+                   android:layout_alignParentEnd="true"
+                   android:layout_alignParentRight="true" android:scaleType="centerCrop"/>
         <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="30sp"
                 android:text="@string/app_name"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:textColor="@android:color/black"/>
+                android:textColor="@android:color/white" android:textStyle="bold|italic"/>
+
     </RelativeLayout>
+
 </LinearLayout>
